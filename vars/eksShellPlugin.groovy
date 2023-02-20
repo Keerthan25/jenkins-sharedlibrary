@@ -40,7 +40,7 @@ environment {
         stage('DEPLOY IMAGE') {
 		      steps {
 			      script {
-              withKubeConfig([credentialsId: kubernetesconfig, serverUrl: '']) {
+              withKubeConfig([credentialsId: kubeconfig, serverUrl: '']) {
                 sh 'kubectl set image deploy $deployment $containerName="$registry:$dockerTag" --record'
               }
             }

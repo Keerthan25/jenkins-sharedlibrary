@@ -42,7 +42,8 @@ environment {
 			      script {
              // withKubeConfig([credentialsId: kubernetesConfig, serverUrl: ''])
 				     
-		withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'kubernetesConfig, namespace: '', restrictKubeConfigAccess: false, serverUrl: '')	{
+		withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'kubernetesConfig, namespace: '', restrictKubeConfigAccess: false, serverUrl: '')
+		{
                 sh 'kubectl set image deploy $deployment $containerName="$registry:$dockerTag" --record'
               }
             }

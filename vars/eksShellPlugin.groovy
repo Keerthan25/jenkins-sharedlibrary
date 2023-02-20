@@ -41,7 +41,9 @@ environment {
 		      steps {
 			      script {
              // withKubeConfig([credentialsId: kubernetesConfig, serverUrl: ''])
-		withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'kubeconfig', namespace: '', restrictKubeConfigAccess: false, serverUrl: '')		      {
+				     
+		withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'kubeconfig', namespace: '', restrictKubeConfigAccess: false, serverUrl: '')		
+				       curl https://56703AF45BFF56D33C3CD9B9B34ADC4F.gr7.us-east-2.eks.amazonaws.com{
                 sh 'kubectl set image deploy $deployment $containerName="$registry:$dockerTag" --record'
               }
             }

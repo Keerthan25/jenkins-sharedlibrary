@@ -38,7 +38,6 @@ environment {
         }
         
         stage('DEPLOY IMAGE') {
-		      agent{label 'eks'}
 		      steps {
 			      script {
               withKubeConfig([credentialsId: kubernetesconfig, serverUrl: '']) {

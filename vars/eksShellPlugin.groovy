@@ -1,5 +1,5 @@
-def call(String registryCred = 'a', String registryname = 'a', String docTag = 'a', String grepo = 'a', String gbranch = 'a', String gitcred = 'a', String depname = 'a', String contname = 'a' //String k8scred = 'a') { 
-
+def call(String registryCred = 'a', String registryname = 'a', String docTag = 'a', String grepo = 'a', String gbranch = 'a', String gitcred = 'a', String depname = 'a', String contname = 'a' ) { 
+//String k8scred = 'a'
 pipeline {
 environment { 
 		registryCredential = "${registryCred}"

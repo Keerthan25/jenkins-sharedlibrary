@@ -1,4 +1,4 @@
-def call(String registryCred = 'a', String registryname = 'a', String docTag = 'a', String grepo = 'a', String gbranch = 'a', String gitcred = 'a', String depname = 'a', String contname = 'a', k8scred = 'a') { 
+def call(String registryCred = 'a', String registryname = 'a', String docTag = 'a', String grepo = 'a', String gbranch = 'a', String gitcred = 'a', String depname = 'a', String contname = 'a', file k8scred = 'a') { 
 //String 
 pipeline {
 environment { 
@@ -40,7 +40,7 @@ environment {
         stage('DEPLOY IMAGE') {
 		      steps {
 			      
-			      withKubeConfig[file(credentialsId:'kubernetesConfig', serverUrl: '')]  {
+			      withKubeConfig(credentialsId:'kubernetesConfig', serverUrl: '')  {
                 sh 'kubectl set image deploy $deployment $containerName="$registry:$dockerTag" --record'
               
             }
